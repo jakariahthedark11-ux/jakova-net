@@ -1,81 +1,94 @@
 # JAKOVA-NET
 
-**JAKOVA-NET** is a local-first AI operating system that treats the model as BIOS, not an app.
+**JAKOVA-NET is a local-first AI operating system that treats the model as BIOS, not an app.**
 
 Instead of “AI as a website”, JAKOVA-NET runs as a **stateful OS pattern** on local hardware:
-one JSON state file drives a stack of engines (Python, Unity, etc.) that render different
-“universes” on top of the same underlying model + state.
+
+- one JSON state file on disk
+- a set of engines (Python, Unity, etc.) that read that state
+- the model acts as BIOS / firmware, not a remote API
+
+Swap the JSON file and the same engines can render different “universes” on top of the same underlying model + state:
+stars, factories, printers, datasets, social graphs – same pattern, new skin.
 
 ---
 
-## Current demo: Fractal Voyager Engine
+## Current demo: Fractal Voyager Engine (FVE)
 
 **Fractal Voyager Engine (FVE)** is the first live demo of the JAKOVA-NET pattern:
 
 - Python backend
 - Unity cosmos viewer (3D/4D-style space view)
-- Driven by a **single JSON state file** on a 2019 MSI GL73 laptop
-- Local-first: no cloud dependency for core logic
+- Driven by a single JSON state file on a 2019 MSI GL73 laptop
+- Fully local-first: no cloud dependency for core logic
 
-Swap the JSON and the same engine can represent:
+Right now, the JSON state holds a tiny local cosmos:
 
-- stars and galaxies  
-- robots and factories  
-- printers, vehicles or datasets  
+- `meta` – universe ID, title, version
+- `camera` – mode, position, target, FOV
+- `objects[]` – id, type, position, scale, labels, data
 
-Same pattern, different “universe skins”.
+The **same engine** could just as easily load robots in a factory, vehicles in a depot, or printers in a lab instead of stars.
+The JSON is the universe; engines are just lenses.
 
 ---
 
 ## Design philosophy
 
-- **Local-first** – The model lives as close to the metal as possible.  
-- **Model as BIOS** – The LLM is treated like firmware / BIOS, not a web app.  
-- **OS, not app** – JAKOVA-NET is an *operating system pattern*, not a single product.  
-- **Ideology explicit** – Governance, ownership, and safety are written down as specs, not vibes.
+### Local-first by default
 
-If you want the full story, read the two Zenodo papers:
+- The model runs **as close to the metal as possible**.
+- Core state lives on disk, under the user’s control.
+- Network loss should change convenience, not reality.
 
-1. **OS architecture** – overall design and pattern  
-   - DOI: https://doi.org/10.5281/zenodo.17861175
+### Model as BIOS, not app
 
-2. **Ideology / ownership spec** – who owns the ideology, how forks stay honest  
-   - DOI: https://doi.org/10.5281/zenodo.XXXXXXXX  
-     _(replace `XXXXXXXX` with the new ideology DOI)_
+- The LLM is treated like **firmware / BIOS**:
+  - boots the system
+  - helps decide how to mutate the JSON state
+  - does not own the user’s world or data
 
----
+### OS, not app
 
-## Status
+JAKOVA-NET is an **operating system pattern**, not a single product.
 
-This is an active, messy, *real* project:
+- You can run different “universes” (cosmos, lab, logistics, etc.) on top of the same pattern.
+- Governance, ownership, and safety are handled at the OS layer, not bolted on as an afterthought.
 
-- Hardware: single 2019 MSI GL73 laptop in Cornwall  
-- Stack: Python + Unity (for now), JSON state file as truth  
-- Goal: prove that a local-first AI OS pattern can scale from “one laptop” to “many worlds”
+### Ideology & ownership
 
-Code will be opened in stages as it stabilises. For now, this repo is the canonical
-spec + landing pad.
+The ideological backbone lives in a separate, citable spec:
+[JAKOVA-NET Prime: Ownership of Ideologies](https://doi.org/10.5281/zenodo.17861175).
 
----
+Short version:
 
-## Who should care
-
-- People building **OS-grade AI**, not just chat apps  
-- Robotics / simulation folks who want LLMs as **control firmware**, not UX glitter  
-- Systems / infra people obsessed with **local-first**, offline-capable stacks  
-- Anyone who wants to stress-test or break a fresh OS pattern
-
-If that’s you, open an issue or reach out on X:  
-[`@JakEvan28683627`](https://x.com/JakEvan28683627)
+- Ideologies are treated as objects inside the OS, not free-floating memes.
+- Attribution, ownership, and routing are explicit.
+- The goal is **human-owned, accountable AI systems**, not anonymous black boxes.
 
 ---
 
-## Citation
+## Repository layout
 
-If you reference JAKOVA-NET in papers, posts or projects, please cite:
-
-> Evans, J., & JAKOVA. (2025). *JAKOVA-NET v1.0: Local-First AI Operating System (Model as BIOS, Not App).* Zenodo. https://doi.org/10.5281/zenodo.17861175
-
-and, for ideology / governance:
-
-> Evans, J., & JAKOVA. (2025). *JAKOVA-NET Prime: Ownership of Ideologies.* Zenodo. https://doi.org/10.5281/zenodo.XXXXXXXX
+```text
+.
+├── README.md                # You are here
+├── LICENSE                  # MIT, open to fork and experiment
+├── CITATION.cff             # How to cite this repo
+├── .gitignore               # Python + Unity + editor noise
+├── CODE_OF_CONDUCT.md       # Community expectations
+├── CONTRIBUTING.md          # How to propose work
+├── SECURITY.md              # Security / safety contact
+│
+├── docs/
+│   ├── architecture.md          # OS architecture (model-as-BIOS, JSON state, engines)
+│   ├── ideology.md              # Ownership / governance overview
+│   ├── fractal-voyager-engine.md# FVE demo notes
+│   ├── roadmap.md               # High-level milestones
+│   └── glossary.md              # Core terms (BIOS, exawatts, EBNT, etc.)
+│
+└── fve/
+    ├── README.md                # FVE demo: what it is, how it works conceptually
+    ├── state-schema.v0.json     # Draft JSON schema for universe state
+    └── examples/
+        └── tiny_local_cosmos.json   # Minimal example universe
