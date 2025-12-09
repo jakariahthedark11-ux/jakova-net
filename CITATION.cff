@@ -1,30 +1,32 @@
 cff-version: 1.2.0
-message: "If you use JAKOVA-NET in your work, please cite the Zenodo records."
+message: "If you use JAKOVA-NET in your work, please cite the Zenodo records listed below."
 title: "JAKOVA-NET: Local-First AI Operating System"
 authors:
   - family-names: Evans
     given-names: Jak
-  - name: JAKOVA (AI system)
-doi: 10.5281/zenodo.17861175
-date-released: 2025-12-08
+  - name: "JAKOVA (AI system)"
+doi: "10.5281/zenodo.105281"
+date-released: 2025-12-09
 version: "1.0.0"
+url: "https://github.com/jakariahthedark11-ux/jakova-net"
 
-OS architecture (v1.0)
-JAKOVA-NET v1.0: Local-First AI Operating System (Model as BIOS, Not App)
-https://doi.org/10.5281/zenodo.105281
+references:
+  - type: article
+    title: "JAKOVA-NET v1.0: Local-First AI Operating System (Model as BIOS, Not App)"
+    doi: "10.5281/zenodo.105281"
 
-Ideology / ownership
-JAKOVA-NET Prime: Ownership of Ideologies
-https://doi.org/10.5281/zenodo.17861175
+  - type: article
+    title: "JAKOVA-NET Prime: Ownership of Ideologies"
+    doi: "10.5281/zenodo.17861175"
 
-Work-class / power routing
-JAKOVA-NET EXAWATTS v1.1: A Lightweight Work-Class & Power-Routing Layer for Personal Multi-AI Operating Systems
-https://doi.org/10.5281/zenodo.105282
+  - type: article
+    title: "JAKOVA-NET EXAWATTS v1.1: A Lightweight Work-Class & Power-Routing Layer for Personal Multi-AI Operating Systems"
+    doi: "10.5281/zenodo.105282"
 
-Life / lab / cosmos bridge (v2 OS)
-JAKOVA-NET v2: A Personal Operating System for Life, Lab, and Cosmos
-https://doi.org/10.5281/zenodo.105283
+  - type: article
+    title: "JAKOVA-NET v2: A Personal Operating System for Life, Lab, and Cosmos"
+    doi: "10.5281/zenodo.105283"
 
-Cross-scale theory
-The Evans-Barboza Network Theory (EBNT): A Cross-Scale Framework for Network Structure in Natural Systems
-https://doi.org/10.5281/zenodo.105284
+  - type: article
+    title: "The Evans-Barboza Network Theory (EBNT): A Cross-Scale Framework for Network Structure in Natural Systems"
+    doi: "10.5281/zenodo.105284"
