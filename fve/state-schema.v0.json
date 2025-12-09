@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JAKOVA-NET FVE Universe State v0",
+  "type": "object",
+  "required": ["meta", "camera", "objects"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["universe_id", "title", "version"],
+      "properties": {
+        "universe_id": { "type": "string" },
+        "title": { "type": "string" },
+        "version": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "camera": {
+      "type": "object",
+      "required": ["mode", "position", "target", "fov_deg"],
+      "properties": {
+        "mode": { "type": "string", "enum": ["orbit", "free", "fixed"] },
+        "position": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "target": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "fov_deg": { "type": "number", "minimum": 1, "maximum": 179 }
+      },
+      "additionalProperties": true
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "position"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "position": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "scale": {
+            "oneOf": [
+              { "type": "number" },
+              {
+                "type": "array",
+                "items": { "type": "number" },
+                "minItems": 3,
+                "maxItems": 3
+              }
+            ]
+          },
+          "labels": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}
