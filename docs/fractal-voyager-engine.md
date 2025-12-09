@@ -79,3 +79,44 @@ Rough structure of `example_state.json`:
   - `scale` (float)
   - `labels` (object of small strings: `name`, `tagline`, etc.)
   - `data` (free-form payload for backend logic / tooltips)
+
+# Fractal Voyager Engine (FVE)
+
+Fractal Voyager Engine is the first live demo of the JAKOVA-NET pattern.
+
+## 1. Purpose
+
+- Prove that a **single JSON universe file** can drive:
+  - a local simulation backend
+  - a 3D/4D viewer
+- Validate the architecture before touching robots, labs, or factories.
+- Serve as a mental model for future “universe skins”.
+
+---
+
+## 2. High-level pipeline
+
+1. Load `tiny_local_cosmos.json` (or another universe file).
+2. Python backend:
+   - validates against `state-schema.v0.json`
+   - builds in-memory objects
+   - steps the simulation (if any)
+3. Unity viewer:
+   - visualises stars/objects according to the JSON
+   - sends user interactions back as intents
+4. BIOS/model:
+   - helps decide whether and how to mutate state
+   - may propose new objects, trajectories, or labels
+5. Backend:
+   - writes updated JSON back to disk.
+
+---
+
+## 3. Current status
+
+- Universe schema: defined in `fve/state-schema.v0.json`
+- Example universe: `fve/examples/tiny_local_cosmos.json`
+- Running code: local-only at the moment while the pattern stabilises.
+- Next steps:
+  - publish a small public demo
+  - document the Python/Unity interfaces once they are less volatile
