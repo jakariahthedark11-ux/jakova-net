@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use JAKOVA-NET in your work, please cite the Zenodo records."
+title: "JAKOVA-NET: Local-First AI Operating System"
+authors:
+  - family-names: Evans
+    given-names: Jak
+  - name: JAKOVA (AI system)
+doi: 10.5281/zenodo.17861175
+date-released: 2025-12-08
+version: "1.0.0"
