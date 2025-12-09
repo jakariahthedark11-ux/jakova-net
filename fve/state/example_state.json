@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "universe_id": "FVE_DEMO_V1",
+    "title": "Fractal Voyager Demo – Local Cosmos",
+    "version": "1.0.0"
+  },
+
+  "camera": {
+    "mode": "orbit",
+    "position": [0.0, 0.0, 25.0],
+    "target": [0.0, 0.0, 0.0],
+    "fov_degrees": 60.0
+  },
+
+  "objects": [
+    {
+      "id": "STAR_SOL",
+      "type": "star",
+      "position": [0.0, 0.0, 0.0],
+      "scale": 1.5,
+      "labels": {
+        "name": "Sol",
+        "class": "G-type main-sequence",
+        "tagline": "Baseline reference star"
+      },
+      "data": {
+        "temperature_k": 5778,
+        "radius_km": 696340,
+        "notes": "Anchor of the local grid."
+      }
+    },
+
+    {
+      "id": "STAR_PROXIMA",
+      "type": "star",
+      "position": [12.0, 3.0, -4.0],
+      "scale": 0.8,
+      "labels": {
+        "name": "Proxima Centauri",
+        "class": "M-type red dwarf",
+        "tagline": "Nearest neighbour"
+      },
+      "data": {
+        "distance_ly": 4.24,
+        "has_known_planets": true
+      }
+    },
+
+    {
+      "id": "WAYPOINT_ATLAS",
+      "type": "waypoint",
+      "position": [-8.0, 6.0, 5.0],
+      "scale": 0.6,
+      "labels": {
+        "name": "ATLAS Node",
+        "tagline": "Data spine checkpoint"
+      },
+      "data": {
+        "category": "infrastructure",
+        "linked_docs": [
+          "https://doi.org/10.5281/zenodo.17861175"
+        ]
+      }
+    }
+  ]
+}
