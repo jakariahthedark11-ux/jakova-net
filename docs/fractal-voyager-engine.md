@@ -56,3 +56,26 @@ FVE is **one** engine sitting on the JAKOVA-NET stack:
 
 When we stabilise FVE, this doc will be updated with more concrete implementation
 details and links to actual code.
+
+### Schema sketch (v0.1)
+
+Rough structure of `example_state.json`:
+
+- `meta`
+  - `universe_id` (string)
+  - `title` (string)
+  - `version` (semver string)
+
+- `camera`
+  - `mode` (`"orbit"` | `"freefly"` | etc.)
+  - `position` `[x, y, z]` (floats)
+  - `target` `[x, y, z]`
+  - `fov_degrees` (float)
+
+- `objects` (array)
+  - `id` (string, unique)
+  - `type` (string, e.g. `"star"`, `"waypoint"`, `"ship"`)
+  - `position` `[x, y, z]`
+  - `scale` (float)
+  - `labels` (object of small strings: `name`, `tagline`, etc.)
+  - `data` (free-form payload for backend logic / tooltips)
